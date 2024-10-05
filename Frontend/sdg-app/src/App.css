@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.sdg-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sdg-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  width: 250px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.sdg-card h2 {
+  color: #333;
+}
+
+.sdg-card p {
+  color: #666;
+}
