@@ -1,0 +1,88 @@
+/* General Layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: url(assets/BAckground.jpg) no-repeat center center/cover; /* Replace with a relevant background */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-content {
+    background: rgba(0, 0, 0, 0.5); /* Add transparency */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .learn-now-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .learn-now-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* SDGs Section */
+  .sdgs-section {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .sdgs-content {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .sdgs-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  /* Learn Now Section */
+  .learn-now-section {
+    background-color: #e9ecef;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .learn-now-content {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .learn-now-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .learn-now-btn {
+    padding: 12px 25px;
+    font-size: 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .learn-now-btn:hover {
+    background-color: #0056b3;
+  }
+  
