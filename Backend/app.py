@@ -222,6 +222,27 @@ def get_goal(goal_id):
     if goal is None:
         return jsonify({"error": "Goal not found"}), 404
     return jsonify(goal)
+@app.route('/api/goals/<int:goal_id>/submit', methods=['POST'])
+def submit_quiz(goal_id):
+    goal = next((goal for goal in goals_data if goal["id"] == goal_id), None)
+    if goal is None:
+        return jsonify({"error": "Goal not found"}), 404
+
+    user_answers = request.json.get('answers')
+    if not user_answers:
+        return jsonify({"error": "No answers provided"}), 400
+
+    correct_answers = 0
+    quiz = goal.get("quiz", [])
+
+    for i, question in enumerate(quiz):
+        if user_answers[i] == question["answer"]:
+            correct_answers += 1
+
+    total_questions = len(quiz)
+    score = (correct_answers / total_questions) * 100
+
+    return jsonify({"score": score, "correct_answers": correct_answers, "total_questions": total_questions})
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,75 +3,107 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './GoalDetails.css';
 
-function GoalDetail() {
-  const { id } = useParams(); // Get the goal id from the route parameters
-  const [goal, setGoal] = useState(null);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+const GoalDetail = () => {
+    const { id } = useParams();
+    const [goal, setGoal] = useState(null);
+    const [userAnswers, setUserAnswers] = useState([]); // Track user's answers
+    const [feedback, setFeedback] = useState([]); // Track feedback for each question
+    const [lives, setLives] = useState(5); // Initial 5 lives
+    const [isGameOver, setIsGameOver] = useState(false); // To track if user is out of lives
 
-  useEffect(() => {
-    // Fetch goal details from the backend
-    axios.get(`http://localhost:5000/api/goals/${id}`)
-      .then(response => {
-        setGoal(response.data);
-      })
-      .catch(error => {
-        setError('Unable to fetch goal details.');
-        console.error('Error fetching goal details:', error);
-      });
-  }, [id]);
+    useEffect(() => {
+        axios.get(`http://localhost:5000/api/goals/${id}`)
+            .then(response => setGoal(response.data))
+            .catch(error => console.error('Error fetching goal:', error));
+    }, [id]);
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+    // Handle answer selection for each question
+    const handleAnswerSelect = (questionIndex, selectedOption) => {
+        if (isGameOver) return; // Disable interaction when the game is over
 
-  if (!goal) {
-    return <p>Loading...</p>;
-  }
+        const updatedAnswers = [...userAnswers];
+        updatedAnswers[questionIndex] = selectedOption;
+        setUserAnswers(updatedAnswers);
 
-  // Calculate the next goal ID
-  const nextGoalId = goal.id === 17 ? 1 : goal.id + 1;
+        // Check if the selected answer is correct
+        const isCorrect = goal.quiz[questionIndex].answer === selectedOption;
 
-  return (
-    <div className="goal-detail-page">
-      <h1>{goal.title}</h1>
-      <img src={goal.image} alt={goal.title} />
-      <p>{goal.long_description}</p>
-      
-      {/* Video Section */}
-      <div className="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src={goal.video_link}
-          title={goal.title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
+        setFeedback(prevFeedback => {
+            const updatedFeedback = [...prevFeedback];
+            updatedFeedback[questionIndex] = isCorrect ? 'Correct!' : 'Wrong answer. Try again!';
+            return updatedFeedback;
+        });
 
-      {/* Quiz Section */}
-      <h2>Quiz</h2>
-      <ul>
-        {goal.quiz.map((quizItem, index) => (
-          <li key={index}>
-            <p><strong>{quizItem.question}</strong></p>
-            <ul>
-              {quizItem.options.map((option, optionIndex) => (
-                <li key={optionIndex}>{option}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+        // If the answer is incorrect, decrease a life
+        if (!isCorrect) {
+            const remainingLives = lives - 1;
+            setLives(remainingLives);
+            if (remainingLives <= 0) {
+                setIsGameOver(true); // End the session if lives reach 0
+            }
+        }
+    };
 
-      {/* Button to navigate to the next goal */}
-      <button className='class-switch' onClick={() => navigate(`/goal/${nextGoalId}`)}>
-        Go To Next Goal
-      </button>
-    </div>
-  );
-}
+    if (!goal) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div className="goal-detail-page">
+            <h1>{goal.title}</h1>
+            <img src={goal.image} alt={goal.title} />
+            <p>{goal.long_description}</p>
+            <div className="video-container">
+                <iframe 
+                    src={goal.video_link} 
+                    title={goal.title} 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen>
+                </iframe>
+            </div>
+
+            <h2>Quiz</h2>
+
+            {/* Display remaining lives as hearts */}
+            <div className="life-system">
+                {Array.from({ length: lives }).map((_, index) => (
+                    <span key={index} className="heart">❤️</span>
+                ))}
+            </div>
+
+            {isGameOver ? (
+                <div className="game-over-message">
+                    <h3>Game Over! You've used all your lives.</h3>
+                    <p>Take a break and come back refreshed!</p>
+                </div>
+            ) : (
+                <ul>
+                    {goal.quiz.map((question, index) => (
+                        <li key={index}>
+                            <p>{question.question}</p>
+                            <ul>
+                                {question.options.map((option, optionIndex) => {
+                                    const isSelected = userAnswers[index] === option;
+                                    const isCorrect = goal.quiz[index].answer === option;
+
+                                    return (
+                                        <li 
+                                            key={optionIndex} 
+                                            className={`option ${isSelected ? (isCorrect ? 'correct' : 'wrong') : ''}`} // Set correct class based on selection
+                                            onClick={() => handleAnswerSelect(index, option)}>
+                                            {option}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            {/* Display feedback for the current question */}
+                            {feedback[index] && <p className={`feedback ${feedback[index] === 'Correct!' ? 'correct' : 'wrong'}`}>{feedback[index]}</p>}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
 
 export default GoalDetail;
