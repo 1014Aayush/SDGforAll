@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Card from './card';
-import axios from 'axios'; // Import Axios
-import './LearnNow.css';
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
+import axios from "axios"; // Import Axios
+import "./LearnNow.css";
 
 function LearnNow() {
   const [cardData, setCardData] = useState([]); // State to hold goal data
@@ -9,13 +9,14 @@ function LearnNow() {
 
   useEffect(() => {
     // Fetch goals data from the backend
-    axios.get('http://localhost:5000/api/goals')
-      .then(response => {
+    axios
+      .get("http://localhost:5000/api/goals")
+      .then((response) => {
         setCardData(response.data); // Set state with fetched data
       })
-      .catch(error => {
-        console.error('Error fetching goals data:', error);
-        setError('Unable to fetch goals data.'); // Store error message
+      .catch((error) => {
+        console.error("Error fetching goals data:", error);
+        setError("Unable to fetch goals data."); // Store error message
       });
   }, []);
 
@@ -23,13 +24,17 @@ function LearnNow() {
     return <p>{error}</p>; // Display error message if any
   }
 
+  console.log(cardData);
   return (
-    <div className="learn-now-page">
+    <div className='learn-now-page'>
       <h1>Game-Based Learning</h1>
-      <p>Get ready to dive into an interactive and engaging way to learn the SDGs through games!</p>
+      <p>
+        Get ready to dive into an interactive and engaging way to learn the SDGs
+        through games!
+      </p>
 
-      <div className="card-container">
-        {cardData.map(card => (
+      <div className='card-container'>
+        {cardData.map((card) => (
           <Card
             key={card.id}
             title={card.title}
@@ -44,6 +49,3 @@ function LearnNow() {
 }
 
 export default LearnNow;
-
-
-

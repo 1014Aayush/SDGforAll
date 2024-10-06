@@ -83,10 +83,12 @@ const GoalDetail = () => {
     }, 500); // Match the CSS transition duration
   };
 
+  const imageAddress = "../" + goal.image;
+
   return (
     <div className={`goal-detail-page ${isFading ? "fade-out" : "fade-in"}`}>
       <h1>{goal.title}</h1>
-      <img src={goal.image} alt={goal.title} />
+      <img src={imageAddress} id="headerImage" />
       <p>{goal.long_description}</p>
       <div className='video-container' ref={triggerRef}>
         <iframe

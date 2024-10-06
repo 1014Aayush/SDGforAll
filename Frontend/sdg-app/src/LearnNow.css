@@ -1,20 +1,20 @@
 .learn-now-page {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa;
-    text-align: center;
-  }
-  
-  .game-placeholder {
-    margin-top: 20px;
-    padding: 50px;
-    border: 2px dashed #007bff;
-    border-radius: 10px;
-  }
-  /* App.css or NextPage.css */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.game-placeholder {
+  margin-top: 20px;
+  padding: 50px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+}
+/* App.css or NextPage.css */
 
 .next-page {
   text-align: center;
@@ -60,5 +60,3 @@
   font-size: 1rem;
   color: #666;
 }
-
-  
