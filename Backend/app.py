@@ -11,7 +11,7 @@ goals_data = [
         "description": "End poverty in all its forms everywhere.",
         "long_description": "Poverty is a fundamental issue that affects the well-being of people worldwide. Achieving this goal is vital to improving access to resources and services and ensuring social protection for the vulnerable.",
         "image": "/images/no-poverty.jpg",
-        "video_link": "https://www.youtube.com/embed/7VwK9qRflL0",
+        "video_link": "https://www.youtube.com/embed/WYGIpP2Nal0?si=iMzu9eWb6pGonQKq",
         "quiz": [
             {"question": "What is one way we can help reduce poverty?", 
              "options": ["Buying a lot of clothes", "Donating to charities", "Throwing food away", "Using more electricity"], 
@@ -36,7 +36,7 @@ goals_data = [
         "description": "End hunger, achieve food security and improved nutrition.",
         "long_description": "Zero Hunger focuses on eliminating hunger and ensuring that everyone has enough food to lead a healthy and active life. This goal emphasizes the importance of sustainable agricultural practices.",
         "image": "/images/zero-hunger.jpg",
-        "video_link": "https://www.youtube.com/embed/8K9Y5NxV8P4",
+        "video_link": "https://www.youtube.com/embed/DNCL-1ASmNc?si=wEIalw0AFJHB1Yd2",
         "quiz": [
             {"question": "What does 'Zero Hunger' aim to achieve?", 
              "options": ["To let people eat as much as they want", "To ensure no one goes hungry", "To make sure everyone eats ice cream", "To stop people from eating"], 
@@ -61,7 +61,7 @@ goals_data = [
         "description": "Ensure healthy lives and promote well-being for all.",
         "long_description": "This goal aims to ensure that everyone can live long, healthy lives. It addresses the prevention and treatment of diseases and aims to promote mental health and well-being.",
         "image": "/images/good-health.jpg",
-        "video_link": "https://www.youtube.com/embed/8L5DZxGk4V8",
+        "video_link": "https://www.youtube.com/embed/ZVqSC_hN2lk?si=-4Pgew3zDCOP7EWB",
         "quiz": [
             {"question": "What is one way to stay healthy?", 
              "options": ["Eating junk food all the time", "Exercising and eating healthy food", "Sleeping all day", "Never drinking water"], 
@@ -86,7 +86,7 @@ goals_data = [
         "description": "Ensure inclusive and equitable quality education.",
         "long_description": "Quality Education ensures that everyone has access to quality education and opportunities for lifelong learning. It aims to promote equity and inclusion in education.",
         "image": "/images/quality-education.jpg",
-        "video_link": "https://www.youtube.com/embed/oT5MZkk-JB0",
+        "video_link": "https://www.youtube.com/embed/tlhp3K1veoQ?si=YALe2MU-LDBSqq-A",
         "quiz": [
             {"question": "What does SDG 4 aim to provide?", 
              "options": ["Quality education for all children", "Free ice cream", "No homework for anyone", "More video games"], 
@@ -111,7 +111,7 @@ goals_data = [
         "description": "Achieve gender equality and empower all women and girls.",
         "long_description": "This goal aims to end discrimination, violence, and harmful practices against women and girls, ensuring equal rights and opportunities in all areas.",
         "image": "/images/gender-equality.jpg",
-        "video_link": "https://www.youtube.com/embed/y_3W4RxSxgo",
+        "video_link": "https://www.youtube.com/embed/vNv4WAGZAak?si=otHUiW4frTaTWLEX",
         "quiz": [
             {"question": "What is gender equality?", 
              "options": ["Treating boys and girls equally", "Only letting boys go to school", "Only letting girls play sports", "Making boys do all the chores"], 
@@ -161,7 +161,7 @@ goals_data = [
         "description": "Ensure access to affordable, reliable, sustainable, and modern energy.",
         "long_description": "This goal aims to ensure universal access to affordable, reliable, and sustainable energy, highlighting the importance of renewable energy sources.",
         "image": "/images/affordable-clean-energy.jpg",
-        "video_link": "https://www.youtube.com/embed/jOe9GV0dfAg",
+        "video_link": "https://www.youtube.com/embed/HyjNKnjpRvU?si=GSG7lxBVJBPbH8Ez",
         "quiz": [
             {"question": "What is 'clean energy'?", 
              "options": ["Energy that comes from wind, sun, or water", "Energy made by burning coal", "Energy from cooking", "Energy from candy"], 
@@ -186,7 +186,7 @@ goals_data = [
         "description": "Promote sustained, inclusive and sustainable economic growth.",
         "long_description": "This goal focuses on providing decent work opportunities and promoting sustainable economic growth, ensuring that everyone can benefit from economic progress.",
         "image": "/images/decent-work.jpg",
-        "video_link": "https://www.youtube.com/embed/XB6e0gXlw7I",
+        "video_link": "https://www.youtube.com/embed/dylOM3GY9PY?si=Y3MdSTufm-K9Ti2o",
         "quiz": [
             {"question": "What does 'decent work' mean?", 
              "options": ["Having a fair and safe job", "Playing video games all day", "Making people work without rest", "Working only when you feel like it"], 
@@ -236,7 +236,7 @@ goals_data = [
         "description": "Reduce inequality within and among countries.",
         "long_description": "This goal focuses on reducing inequalities in wealth and opportunity, ensuring that everyone can benefit from economic growth and development.",
         "image": "/images/reduced-inequality.jpg",
-        "video_link": "https://www.youtube.com/embed/d_mZcFgHcI4",
+        "video_link": "https://www.youtube.com/embed/UXZcLINRGw0?si=q9F2h72RZjkZNW3t",
         "quiz": [
             {"question": "What does 'inequality' mean?", 
              "options": ["When people are treated unfairly because of differences", "When everyone has the same things", "When everyone has the same job", "When people are treated equally"], 
@@ -261,7 +261,7 @@ goals_data = [
         "description": "Make cities and human settlements inclusive, safe, resilient and sustainable.",
         "long_description": "This goal aims to create sustainable urban environments that ensure safety, inclusivity, and resilience against challenges such as climate change.",
         "image": "/images/sustainable-cities.jpg",
-        "video_link": "https://www.youtube.com/embed/CBR82U-Jb8o",
+        "video_link": "https://www.youtube.com/embed/UXZcLINRGw0?si=uIKpqLDECAsAmu6n",
         "quiz": [
             {"question": "What does a 'sustainable city' mean?", 
              "options": ["A city with lots of cars", "A city that takes care of the environment and people", "A city with no rules", "A city with only tall buildings"], 
@@ -286,7 +286,7 @@ goals_data = [
         "description": "Ensure sustainable consumption and production patterns.",
         "long_description": "This goal emphasizes the importance of sustainable practices in consumption and production, promoting the responsible use of resources to ensure environmental sustainability.",
         "image": "/images/responsible-consumption.jpg",
-        "video_link": "https://www.youtube.com/embed/CnDgZnZWckE",
+        "video_link": "https://www.youtube.com/embed/RX2elsVjY-c?si=INd8ml47Bl8Ople7",
         "quiz": [
             {"question": "What does 'responsible consumption' mean?", 
              "options": ["Using resources carefully and not wasting them", "Buying as much as possible", "Throwing away all food", "Leaving lights on all the time"], 
@@ -311,7 +311,7 @@ goals_data = [
         "description": "Take urgent action to combat climate change and its impacts.",
         "long_description": "Climate Action focuses on reducing the effects of climate change through urgent actions and policies that promote sustainability and resilience.",
         "image": "/images/climate-action.jpg",
-        "video_link": "https://www.youtube.com/embed/1YzyaE6IRmg",
+        "video_link": "https://www.youtube.com/embed/xznlCuhqfOI?si=IEy2g6q01SFncNY0",
         "quiz": [
             {"question": "What is climate change?", 
              "options": ["A change in the weather patterns caused by human activity", "A new type of clothing", "A different kind of plant", "A game people play"], 
@@ -336,7 +336,7 @@ goals_data = [
         "description": "Conserve and sustainably use the oceans, seas and marine resources.",
         "long_description": "This goal aims to protect marine environments and promote sustainable practices to ensure the health of oceans and marine life.",
         "image": "/images/life-below-water.jpg",
-        "video_link": "https://www.youtube.com/embed/nXGafAFr2gE",
+        "video_link": "https://www.youtube.com/embed/u75w751uzoQ?si=3qUQ5Jq6W0-Xmz_3",
         "quiz": [
             {"question": "Why are oceans important for life on Earth?", 
              "options": ["They provide homes for many animals and help produce oxygen", "They are good places to throw trash", "They make the Earth hotter", "They are only for swimming"], 
@@ -361,7 +361,7 @@ goals_data = [
         "description": "Protect, restore and promote sustainable use of terrestrial ecosystems.",
         "long_description": "This goal emphasizes the importance of preserving terrestrial ecosystems and promoting sustainable land use practices.",
         "image": "/images/life-on-land.jpg",
-        "video_link": "https://www.youtube.com/embed/3eHEH2d0Oas",
+        "video_link": "https://www.youtube.com/embed/N5YR2GMhYcI?si=43JTNavEDikj-dhM",
         "quiz": [
             {"question": "What is one way to protect forests and animals?", 
              "options": ["Planting trees and stopping deforestation", "Cutting down all the trees", "Hunting all the animals", "Building more cities in forests"], 
