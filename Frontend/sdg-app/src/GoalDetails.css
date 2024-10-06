@@ -168,3 +168,18 @@ ul li ul li {
         padding: 10px;
     }
 }
+
+
+
+.goal-detail-page {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.goal-detail-page.fade-out {
+    opacity: 0;
+}
+
+.goal-detail-page.fade-in {
+    opacity: 1;
+}

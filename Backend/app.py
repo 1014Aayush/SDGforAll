@@ -4,7 +4,7 @@ from flask_cors import CORS  # <-- Import CORS
 app = Flask(__name__)
 CORS(app)  # <-- Enable CORS for all routes
 
-goals_data=[
+goals_data = [
     {
         "id": 1,
         "title": "No Poverty",
@@ -13,8 +13,21 @@ goals_data=[
         "image": "/images/no-poverty.jpg",
         "video_link": "https://www.youtube.com/embed/7VwK9qRflL0",
         "quiz": [
-            {"question": "What is the main target of Goal 1?", "options": ["End hunger", "End poverty", "Promote gender equality"], "answer": "End poverty"},
-            {"question": "By which year does the UN aim to end poverty in all forms?", "options": ["2030", "2025", "2050"], "answer": "2030"}
+            {"question": "What is one way we can help reduce poverty?", 
+             "options": ["Buying a lot of clothes", "Donating to charities", "Throwing food away", "Using more electricity"], 
+             "answer": "Donating to charities"},
+            {"question": "Which group of people is most affected by poverty?", 
+             "options": ["Only rich people", "People with a lot of money", "People without enough money for basic needs", "People who own a lot of businesses"], 
+             "answer": "People without enough money for basic needs"},
+            {"question": "What does 'poverty' mean?", 
+             "options": ["Having too much food", "Having very little money or resources", "Having many toys", "Going on vacation often"], 
+             "answer": "Having very little money or resources"},
+            {"question": "How can education help end poverty?", 
+             "options": ["By making people smarter so they can get better jobs", "By making people lazy", "By making people poor", "By making people fight"], 
+             "answer": "By making people smarter so they can get better jobs"},
+            {"question": "Why is it important to end poverty?", 
+             "options": ["So everyone can have equal opportunities", "So only rich people can be happy", "To make sure everyone has toys", "To take away people’s money"], 
+             "answer": "So everyone can have equal opportunities"}
         ]
     },
     {
@@ -25,8 +38,21 @@ goals_data=[
         "image": "/images/zero-hunger.jpg",
         "video_link": "https://www.youtube.com/embed/8K9Y5NxV8P4",
         "quiz": [
-            {"question": "What is a significant cause of hunger?", "options": ["Climate change", "Overpopulation", "Natural disasters"], "answer": "Natural disasters"},
-            {"question": "What can help achieve food security?", "options": ["Sustainable farming", "Deforestation", "Industrial agriculture"], "answer": "Sustainable farming"}
+            {"question": "What does 'Zero Hunger' aim to achieve?", 
+             "options": ["To let people eat as much as they want", "To ensure no one goes hungry", "To make sure everyone eats ice cream", "To stop people from eating"], 
+             "answer": "To ensure no one goes hungry"},
+            {"question": "What is one way we can help reduce hunger?", 
+             "options": ["Wasting food", "Sharing food with those in need", "Eating a lot and not sharing", "Only eating junk food"], 
+             "answer": "Sharing food with those in need"},
+            {"question": "Which of these is a healthy food that can help fight hunger?", 
+             "options": ["Vegetables", "Candy", "Cookies", "Soda"], 
+             "answer": "Vegetables"},
+            {"question": "What is 'malnutrition'?", 
+             "options": ["When people eat too much fast food", "When people do not get enough healthy food", "When people drink too much soda", "When people skip breakfast"], 
+             "answer": "When people do not get enough healthy food"},
+            {"question": "How can we help farmers grow more food?", 
+             "options": ["By teaching them better farming techniques", "By telling them to stop farming", "By throwing food away", "By eating all their crops"], 
+             "answer": "By teaching them better farming techniques"}
         ]
     },
     {
@@ -37,8 +63,21 @@ goals_data=[
         "image": "/images/good-health.jpg",
         "video_link": "https://www.youtube.com/embed/8L5DZxGk4V8",
         "quiz": [
-            {"question": "What is one of the targets of Goal 3?", "options": ["Reduce maternal mortality", "Increase pollution", "Promote smoking"], "answer": "Reduce maternal mortality"},
-            {"question": "What can improve global health?", "options": ["Universal health coverage", "Lack of healthcare access", "High prices for medication"], "answer": "Universal health coverage"}
+            {"question": "What is one way to stay healthy?", 
+             "options": ["Eating junk food all the time", "Exercising and eating healthy food", "Sleeping all day", "Never drinking water"], 
+             "answer": "Exercising and eating healthy food"},
+            {"question": "Why is it important to wash your hands often?", 
+             "options": ["To make your hands shiny", "To keep germs away and stay healthy", "To make your hands cold", "To waste water"], 
+             "answer": "To keep germs away and stay healthy"},
+            {"question": "What should you do if you feel sick?", 
+             "options": ["Ignore it", "Tell an adult or go to a doctor", "Go play outside", "Eat candy"], 
+             "answer": "Tell an adult or go to a doctor"},
+            {"question": "Which of these is part of staying healthy?", 
+             "options": ["Smoking", "Drinking soda all day", "Getting enough sleep", "Watching TV all night"], 
+             "answer": "Getting enough sleep"},
+            {"question": "How can we help others stay healthy?", 
+             "options": ["By sharing information about healthy habits", "By making them eat junk food", "By telling them not to sleep", "By telling them to stop exercising"], 
+             "answer": "By sharing information about healthy habits"}
         ]
     },
     {
@@ -49,8 +88,21 @@ goals_data=[
         "image": "/images/quality-education.jpg",
         "video_link": "https://www.youtube.com/embed/oT5MZkk-JB0",
         "quiz": [
-            {"question": "What is a target of Goal 4?", "options": ["Ensure all youth and adults achieve literacy and numeracy", "Increase dropout rates", "Limit educational access"], "answer": "Ensure all youth and adults achieve literacy and numeracy"},
-            {"question": "Which aspect is critical for quality education?", "options": ["Qualified teachers", "Lack of resources", "Overcrowded classrooms"], "answer": "Qualified teachers"}
+            {"question": "What does SDG 4 aim to provide?", 
+             "options": ["Quality education for all children", "Free ice cream", "No homework for anyone", "More video games"], 
+             "answer": "Quality education for all children"},
+            {"question": "Why is education important?", 
+             "options": ["It helps us learn skills for the future", "It’s only for fun", "It helps us become professional gamers", "It helps us avoid going to school"], 
+             "answer": "It helps us learn skills for the future"},
+            {"question": "What should every child have a chance to do?", 
+             "options": ["Go to school and learn", "Stay at home all day", "Only play video games", "Never read a book"], 
+             "answer": "Go to school and learn"},
+            {"question": "What can we do to support education?", 
+             "options": ["Donate books and supplies", "Destroy schools", "Stop kids from learning", "Waste school materials"], 
+             "answer": "Donate books and supplies"},
+            {"question": "Why do some children not get a good education?", 
+             "options": ["They don’t want to", "They don’t have enough teachers, books, or schools", "They only want to play", "They are too rich"], 
+             "answer": "They don’t have enough teachers, books, or schools"}
         ]
     },
     {
@@ -61,8 +113,21 @@ goals_data=[
         "image": "/images/gender-equality.jpg",
         "video_link": "https://www.youtube.com/embed/y_3W4RxSxgo",
         "quiz": [
-            {"question": "What does gender equality mean?", "options": ["Equal rights for all genders", "More rights for men", "None of the above"], "answer": "Equal rights for all genders"},
-            {"question": "What is a significant barrier to achieving gender equality?", "options": ["Education", "Cultural norms", "Economic opportunity"], "answer": "Cultural norms"}
+            {"question": "What is gender equality?", 
+             "options": ["Treating boys and girls equally", "Only letting boys go to school", "Only letting girls play sports", "Making boys do all the chores"], 
+             "answer": "Treating boys and girls equally"},
+            {"question": "What is one way to promote gender equality?", 
+             "options": ["Giving equal opportunities to boys and girls", "Letting only boys play games", "Making girls stay at home", "Letting boys do all the work"], 
+             "answer": "Giving equal opportunities to boys and girls"},
+            {"question": "Should girls have the same chance to go to school as boys?", 
+             "options": ["Yes, they should", "No, only boys need school", "No, only girls need school", "No one needs school"], 
+             "answer": "Yes, they should"},
+            {"question": "Which of these is an example of gender equality?", 
+             "options": ["Letting boys and girls choose their future jobs", "Making boys do everything", "Only letting girls cook", "Giving boys more school supplies"], 
+             "answer": "Letting boys and girls choose their future jobs"},
+            {"question": "Why is gender equality important?", 
+             "options": ["So everyone has a fair chance in life", "So boys can do everything", "So girls can stay home", "So no one gets educated"], 
+             "answer": "So everyone has a fair chance in life"}
         ]
     },
     {
@@ -73,8 +138,21 @@ goals_data=[
         "image": "/images/clean-water.jpg",
         "video_link": "https://www.youtube.com/embed/8k2x9GlJtBA",
         "quiz": [
-            {"question": "What is a significant issue regarding clean water?", "options": ["Pollution", "Availability", "Cost"], "answer": "Pollution"},
-            {"question": "Which practice is essential for sanitation?", "options": ["Littering", "Waste management", "Ignoring waste"], "answer": "Waste management"}
+            {"question": "Why is clean water important for everyone?", 
+             "options": ["To keep plants healthy", "To stay clean and healthy", "To waste in water fights", "To fill swimming pools"], 
+             "answer": "To stay clean and healthy"},
+            {"question": "How can we save water at home?", 
+             "options": ["By leaving the tap on while brushing teeth", "By fixing leaky taps", "By using water to wash the car every day", "By throwing away water bottles"], 
+             "answer": "By fixing leaky taps"},
+            {"question": "What can happen if people drink dirty water?", 
+             "options": ["They get stronger", "They can get sick", "They feel full", "They grow faster"], 
+             "answer": "They can get sick"},
+            {"question": "What is one way to keep water clean?", 
+             "options": ["Dumping trash into rivers", "Keeping rivers and lakes free of pollution", "Pouring oil into the sea", "Using dirty water for cooking"], 
+             "answer": "Keeping rivers and lakes free of pollution"},
+            {"question": "How can we help people without access to clean water?", 
+             "options": ["Building wells and water filters", "Ignoring the problem", "Using all the water ourselves", "Playing in the water"], 
+             "answer": "Building wells and water filters"}
         ]
     },
     {
@@ -85,8 +163,21 @@ goals_data=[
         "image": "/images/affordable-clean-energy.jpg",
         "video_link": "https://www.youtube.com/embed/jOe9GV0dfAg",
         "quiz": [
-            {"question": "What is a renewable energy source?", "options": ["Fossil fuels", "Solar", "Coal"], "answer": "Solar"},
-            {"question": "Why is clean energy important?", "options": ["To reduce pollution", "To increase costs", "To harm health"], "answer": "To reduce pollution"}
+            {"question": "What is 'clean energy'?", 
+             "options": ["Energy that comes from wind, sun, or water", "Energy made by burning coal", "Energy from cooking", "Energy from candy"], 
+             "answer": "Energy that comes from wind, sun, or water"},
+            {"question": "Why is clean energy important?", 
+             "options": ["It helps pollute the air", "It’s good for the environment", "It makes us hungry", "It breaks our machines"], 
+             "answer": "It’s good for the environment"},
+            {"question": "Which of these is an example of clean energy?", 
+             "options": ["Solar power", "Coal power", "Gasoline power", "Burning wood"], 
+             "answer": "Solar power"},
+            {"question": "How can we save energy at home?", 
+             "options": ["By leaving all the lights on", "By turning off lights when we leave a room", "By using more electricity", "By buying more electronics"], 
+             "answer": "By turning off lights when we leave a room"},
+            {"question": "What is one way to use clean energy at home?", 
+             "options": ["Installing solar panels", "Using a lot of gasoline", "Burning lots of wood", "Using coal"], 
+             "answer": "Installing solar panels"}
         ]
     },
     {
@@ -97,8 +188,21 @@ goals_data=[
         "image": "/images/decent-work.jpg",
         "video_link": "https://www.youtube.com/embed/XB6e0gXlw7I",
         "quiz": [
-            {"question": "What is one goal of decent work?", "options": ["High unemployment", "Job satisfaction", "Exploitation"], "answer": "Job satisfaction"},
-            {"question": "What can promote economic growth?", "options": ["Investment in infrastructure", "Lack of education", "Discrimination"], "answer": "Investment in infrastructure"}
+            {"question": "What does 'decent work' mean?", 
+             "options": ["Having a fair and safe job", "Playing video games all day", "Making people work without rest", "Working only when you feel like it"], 
+             "answer": "Having a fair and safe job"},
+            {"question": "Why is economic growth important?", 
+             "options": ["It helps countries become wealthier and provide better jobs", "It makes everyone lazy", "It stops people from working", "It makes people fight"], 
+             "answer": "It helps countries become wealthier and provide better jobs"},
+            {"question": "What is one way to promote decent work for everyone?", 
+             "options": ["Paying fair wages", "Making people work for free", "Giving people no time to rest", "Letting only a few people work"], 
+             "answer": "Paying fair wages"},
+            {"question": "What is child labor?", 
+             "options": ["When children go to school", "When children are forced to work instead of studying", "When children play with toys", "When children help with homework"], 
+             "answer": "When children are forced to work instead of studying"},
+            {"question": "How can we help people get better jobs?", 
+             "options": ["Providing education and training", "Stopping education", "Taking away books", "Making everyone stay at home"], 
+             "answer": "Providing education and training"}
         ]
     },
     {
@@ -109,8 +213,21 @@ goals_data=[
         "image": "/images/industry-innovation.jpg",
         "video_link": "https://www.youtube.com/embed/g3OQ9mF0Hms",
         "quiz": [
-            {"question": "What is an example of sustainable infrastructure?", "options": ["Highways", "Wind turbines", "Polluting factories"], "answer": "Wind turbines"},
-            {"question": "What drives innovation?", "options": ["Education", "Stagnation", "Resistance to change"], "answer": "Education"}
+            {"question": "What is 'infrastructure'?", 
+             "options": ["Roads, bridges, and buildings that help a city run", "A type of animal", "A new video game", "A kind of tree"], 
+             "answer": "Roads, bridges, and buildings that help a city run"},
+            {"question": "What is one way to make industries better for the environment?", 
+             "options": ["Using clean energy in factories", "Burning lots of fuel", "Polluting rivers", "Throwing away waste"], 
+             "answer": "Using clean energy in factories"},
+            {"question": "How does innovation help people?", 
+             "options": ["It makes new ideas that solve problems", "It makes people angry", "It makes everyone lazy", "It stops people from working"], 
+             "answer": "It makes new ideas that solve problems"},
+            {"question": "Why is good infrastructure important?", 
+             "options": ["It helps cities run smoothly", "It makes people sleepy", "It makes everyone leave the city", "It stops transportation"], 
+             "answer": "It helps cities run smoothly"},
+            {"question": "How can we support innovation?", 
+             "options": ["Encouraging creativity and new ideas", "Stopping new inventions", "Ignoring smart people", "Breaking machines"], 
+             "answer": "Encouraging creativity and new ideas"}
         ]
     },
     {
@@ -121,8 +238,21 @@ goals_data=[
         "image": "/images/reduced-inequality.jpg",
         "video_link": "https://www.youtube.com/embed/d_mZcFgHcI4",
         "quiz": [
-            {"question": "What is one way to reduce inequality?", "options": ["Fair wages", "Exploitation", "Discrimination"], "answer": "Fair wages"},
-            {"question": "Which region faces the highest inequality?", "options": ["Africa", "North America", "Asia"], "answer": "Africa"}
+            {"question": "What does 'inequality' mean?", 
+             "options": ["When people are treated unfairly because of differences", "When everyone has the same things", "When everyone has the same job", "When people are treated equally"], 
+             "answer": "When people are treated unfairly because of differences"},
+            {"question": "How can we reduce inequality?", 
+             "options": ["By treating everyone fairly and giving them equal opportunities", "By only helping rich people", "By ignoring people in need", "By giving some people more rights than others"], 
+             "answer": "By treating everyone fairly and giving them equal opportunities"},
+            {"question": "What is one example of inequality?", 
+             "options": ["Some people being paid less for the same work", "Everyone going to school", "Everyone getting the same pay", "Everyone having clean water"], 
+             "answer": "Some people being paid less for the same work"},
+            {"question": "Who should have equal rights and opportunities?", 
+             "options": ["Only men", "Everyone, regardless of their gender, race, or background", "Only adults", "Only rich people"], 
+             "answer": "Everyone, regardless of their gender, race, or background"},
+            {"question": "Why is it important to reduce inequality?", 
+             "options": ["So everyone has a fair chance in life", "So only rich people succeed", "So only some people can be happy", "So everyone stays the same"], 
+             "answer": "So everyone has a fair chance in life"}
         ]
     },
     {
@@ -133,8 +263,21 @@ goals_data=[
         "image": "/images/sustainable-cities.jpg",
         "video_link": "https://www.youtube.com/embed/CBR82U-Jb8o",
         "quiz": [
-            {"question": "What is a characteristic of a sustainable city?", "options": ["High pollution", "Efficient public transport", "Urban sprawl"], "answer": "Efficient public transport"},
-            {"question": "What is urban resilience?", "options": ["Ability to withstand disasters", "Ignoring risks", "Pollution"], "answer": "Ability to withstand disasters"}
+            {"question": "What does a 'sustainable city' mean?", 
+             "options": ["A city with lots of cars", "A city that takes care of the environment and people", "A city with no rules", "A city with only tall buildings"], 
+             "answer": "A city that takes care of the environment and people"},
+            {"question": "What is one way to make cities cleaner?", 
+             "options": ["Throwing trash in the streets", "Using public transport or bikes instead of cars", "Using more gasoline", "Cutting down all the trees"], 
+             "answer": "Using public transport or bikes instead of cars"},
+            {"question": "Why is it important to have parks and green spaces in cities?", 
+             "options": ["For people to relax and breathe clean air", "So animals can take over the city", "To get rid of buildings", "To have more places to park cars"], 
+             "answer": "For people to relax and breathe clean air"},
+            {"question": "What is one way to reduce pollution in cities?", 
+             "options": ["Planting more trees", "Building more factories", "Burning more coal", "Letting cars run all day"], 
+             "answer": "Planting more trees"},
+            {"question": "How can we make cities safer for everyone?", 
+             "options": ["Building strong and safe houses", "Closing all the roads", "Letting people litter", "Making everything too expensive"], 
+             "answer": "Building strong and safe houses"}
         ]
     },
     {
@@ -145,8 +288,21 @@ goals_data=[
         "image": "/images/responsible-consumption.jpg",
         "video_link": "https://www.youtube.com/embed/CnDgZnZWckE",
         "quiz": [
-            {"question": "What is responsible consumption?", "options": ["Using resources wisely", "Overconsumption", "Wastefulness"], "answer": "Using resources wisely"},
-            {"question": "What is one way to promote responsible production?", "options": ["Using eco-friendly materials", "Ignoring waste management", "Maximizing waste", "None of the above"], "answer": "Using eco-friendly materials"}
+            {"question": "What does 'responsible consumption' mean?", 
+             "options": ["Using resources carefully and not wasting them", "Buying as much as possible", "Throwing away all food", "Leaving lights on all the time"], 
+             "answer": "Using resources carefully and not wasting them"},
+            {"question": "How can we reduce waste at home?", 
+             "options": ["By throwing everything away", "By recycling and reusing things", "By buying more than we need", "By wasting water and energy"], 
+             "answer": "By recycling and reusing things"},
+            {"question": "What is 'recycling'?", 
+             "options": ["Throwing things in the trash", "Turning old materials into new products", "Buying new things every day", "Breaking things on purpose"], 
+             "answer": "Turning old materials into new products"},
+            {"question": "What is one way we can help the planet when we shop?", 
+             "options": ["Buying only what we need", "Buying things we’ll never use", "Throwing away food after buying it", "Using plastic bags for everything"], 
+             "answer": "Buying only what we need"},
+            {"question": "How can companies produce products more responsibly?", 
+             "options": ["By using eco-friendly materials", "By polluting more", "By wasting resources", "By making products that break easily"], 
+             "answer": "By using eco-friendly materials"}
         ]
     },
     {
@@ -157,8 +313,21 @@ goals_data=[
         "image": "/images/climate-action.jpg",
         "video_link": "https://www.youtube.com/embed/1YzyaE6IRmg",
         "quiz": [
-            {"question": "What is a major cause of climate change?", "options": ["Deforestation", "Recycling", "Sustainable farming", "None of the above"], "answer": "Deforestation"},
-            {"question": "What is one way to combat climate change?", "options": ["Using fossil fuels", "Investing in renewable energy", "Ignoring environmental policies", "None of the above"], "answer": "Investing in renewable energy"}
+            {"question": "What is climate change?", 
+             "options": ["A change in the weather patterns caused by human activity", "A new type of clothing", "A different kind of plant", "A game people play"], 
+             "answer": "A change in the weather patterns caused by human activity"},
+            {"question": "What is one way we can fight climate change?", 
+             "options": ["Planting more trees", "Driving more cars", "Using more plastic", "Cutting down all the trees"], 
+             "answer": "Planting more trees"},
+            {"question": "Why is reducing pollution important for the climate?", 
+             "options": ["It helps keep the air and water clean", "It makes the world hotter", "It stops people from breathing", "It creates more waste"], 
+             "answer": "It helps keep the air and water clean"},
+            {"question": "What are greenhouse gases?", 
+             "options": ["Gases that trap heat in the atmosphere", "Air from the garden", "Fresh air from the forest", "Smoke from campfires"], 
+             "answer": "Gases that trap heat in the atmosphere"},
+            {"question": "How can using less energy help the planet?", 
+             "options": ["It reduces pollution and saves resources", "It makes the air dirty", "It causes more climate change", "It wastes water"], 
+             "answer": "It reduces pollution and saves resources"}
         ]
     },
     {
@@ -169,8 +338,21 @@ goals_data=[
         "image": "/images/life-below-water.jpg",
         "video_link": "https://www.youtube.com/embed/nXGafAFr2gE",
         "quiz": [
-            {"question": "What is a major threat to marine life?", "options": ["Plastic pollution", "Sustainable fishing", "Conservation", "None of the above"], "answer": "Plastic pollution"},
-            {"question": "Which marine species is often endangered?", "options": ["Sharks", "Dolphins", "Tuna", "All of the above"], "answer": "All of the above"}
+            {"question": "Why are oceans important for life on Earth?", 
+             "options": ["They provide homes for many animals and help produce oxygen", "They are good places to throw trash", "They make the Earth hotter", "They are only for swimming"], 
+             "answer": "They provide homes for many animals and help produce oxygen"},
+            {"question": "How can we protect the oceans?", 
+             "options": ["By throwing waste into the water", "By keeping beaches clean and reducing plastic waste", "By using more plastic bags", "By catching all the fish"], 
+             "answer": "By keeping beaches clean and reducing plastic waste"},
+            {"question": "What can happen if too much plastic goes into the ocean?", 
+             "options": ["Marine animals can get hurt or die", "It makes the ocean cleaner", "It makes fish grow faster", "It helps animals swim better"], 
+             "answer": "Marine animals can get hurt or die"},
+            {"question": "What is one way to reduce plastic waste?", 
+             "options": ["Using reusable bags instead of plastic ones", "Buying more plastic", "Throwing plastic into the sea", "Using plastic for everything"], 
+             "answer": "Using reusable bags instead of plastic ones"},
+            {"question": "Why is it important to protect coral reefs?", 
+             "options": ["They are homes for many sea creatures", "They are great places for throwing trash", "They make the ocean warmer", "They are just rocks"], 
+             "answer": "They are homes for many sea creatures"}
         ]
     },
     {
@@ -181,8 +363,21 @@ goals_data=[
         "image": "/images/life-on-land.jpg",
         "video_link": "https://www.youtube.com/embed/3eHEH2d0Oas",
         "quiz": [
-            {"question": "What is a key threat to forests?", "options": ["Deforestation", "Conservation", "Sustainable logging", "None of the above"], "answer": "Deforestation"},
-            {"question": "Which of the following is important for biodiversity?", "options": ["Habitat destruction", "Sustainable practices", "Pollution", "None of the above"], "answer": "Sustainable practices"}
+            {"question": "What is one way to protect forests and animals?", 
+             "options": ["Planting trees and stopping deforestation", "Cutting down all the trees", "Hunting all the animals", "Building more cities in forests"], 
+             "answer": "Planting trees and stopping deforestation"},
+            {"question": "Why are trees important for life on Earth?", 
+             "options": ["They provide oxygen and habitats for animals", "They make the ground hard", "They stop animals from living", "They take away air"], 
+             "answer": "They provide oxygen and habitats for animals"},
+            {"question": "How can we help protect endangered animals?", 
+             "options": ["By not destroying their homes and stopping illegal hunting", "By hunting them", "By building cities in their homes", "By throwing trash in the forest"], 
+             "answer": "By not destroying their homes and stopping illegal hunting"},
+            {"question": "What is one way to protect the environment on land?", 
+             "options": ["Reducing pollution and planting more trees", "Cutting down forests", "Throwing trash in rivers", "Destroying animal habitats"], 
+             "answer": "Reducing pollution and planting more trees"},
+            {"question": "Why is biodiversity important?", 
+             "options": ["It keeps ecosystems balanced and healthy", "It makes the planet dirtier", "It causes animals to disappear", "It stops trees from growing"], 
+             "answer": "It keeps ecosystems balanced and healthy"}
         ]
     },
     {
@@ -193,8 +388,21 @@ goals_data=[
         "image": "/images/peace-justice.jpg",
         "video_link": "https://www.youtube.com/embed/KvRfHUnbcE0",
         "quiz": [
-            {"question": "What is essential for peace?", "options": ["Dialogue", "War", "Conflict", "None of the above"], "answer": "Dialogue"},
-            {"question": "What can promote justice?", "options": ["Fair laws", "Discrimination", "Corruption", "None of the above"], "answer": "Fair laws"}
+            {"question": "What is 'peace'?", 
+             "options": ["Living in harmony without fighting", "Having lots of arguments", "Breaking the law", "Ignoring others"], 
+             "answer": "Living in harmony without fighting"},
+            {"question": "What is one way to promote peace in your community?", 
+             "options": ["Solving problems by talking instead of fighting", "Starting fights with others", "Ignoring people", "Breaking things"], 
+             "answer": "Solving problems by talking instead of fighting"},
+            {"question": "Why is justice important?", 
+             "options": ["It ensures that everyone is treated fairly", "It helps only some people", "It makes people angry", "It ignores the law"], 
+             "answer": "It ensures that everyone is treated fairly"},
+            {"question": "What does it mean to have strong institutions?", 
+             "options": ["Having governments and organizations that follow laws and protect people's rights", "Having no rules", "Ignoring people's needs", "Making unfair laws"], 
+             "answer": "Having governments and organizations that follow laws and protect people's rights"},
+            {"question": "How can you contribute to peace and justice?", 
+             "options": ["By respecting others and following the rules", "By breaking the law", "By ignoring people's rights", "By causing trouble"], 
+             "answer": "By respecting others and following the rules"}
         ]
     },
     {
@@ -205,12 +413,24 @@ goals_data=[
         "image": "/images/partnerships.jpg",
         "video_link": "https://www.youtube.com/embed/pY2ZJfOfXhU",
         "quiz": [
-            {"question": "What is a key to successful partnerships?", "options": ["Collaboration", "Competition", "Isolation", "None of the above"], "answer": "Collaboration"},
-            {"question": "Which of the following is essential for partnerships?", "options": ["Trust", "Dishonesty", "Selfishness", "None of the above"], "answer": "Trust"}
+            {"question": "What is a 'partnership'?", 
+             "options": ["When people or organizations work together to achieve something", "When everyone works alone", "When people fight against each other", "When people ignore each other"], 
+             "answer": "When people or organizations work together to achieve something"},
+            {"question": "Why are partnerships important for the SDGs?", 
+             "options": ["They help people work together to solve global problems", "They make people argue", "They stop progress", "They divide people"], 
+             "answer": "They help people work together to solve global problems"},
+            {"question": "What is one example of a partnership for the SDGs?", 
+             "options": ["Countries working together to reduce poverty", "Everyone working separately", "Fighting over resources", "Ignoring each other's problems"], 
+             "answer": "Countries working together to reduce poverty"},
+            {"question": "How can individuals help with the SDGs?", 
+             "options": ["By working with others and taking action", "By staying silent", "By ignoring global issues", "By working alone"], 
+             "answer": "By working with others and taking action"},
+            {"question": "What is one way to encourage partnerships for the SDGs?", 
+             "options": ["Sharing ideas and resources", "Keeping everything to ourselves", "Stopping communication", "Working alone"], 
+             "answer": "Sharing ideas and resources"}
         ]
     }
 ]
-
 
 @app.route('/api/goals', methods=['GET'])
 def get_goals():

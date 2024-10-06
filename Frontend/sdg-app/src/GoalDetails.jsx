@@ -6,10 +6,13 @@ import './GoalDetails.css';
 const GoalDetail = () => {
     const { id } = useParams();
     const [goal, setGoal] = useState(null);
-    const [userAnswers, setUserAnswers] = useState([]); // Track user's answers
-    const [feedback, setFeedback] = useState([]); // Track feedback for each question
-    const [lives, setLives] = useState(5); // Initial 5 lives
-    const [isGameOver, setIsGameOver] = useState(false); // To track if user is out of lives
+    const [userAnswers, setUserAnswers] = useState([]);
+    const [feedback, setFeedback] = useState([]);
+    const [lives, setLives] = useState(5);
+    const [isGameOver, setIsGameOver] = useState(false);
+    const [isFading, setIsFading] = useState(false); // To control fade animation
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/goals/${id}`)
@@ -17,15 +20,12 @@ const GoalDetail = () => {
             .catch(error => console.error('Error fetching goal:', error));
     }, [id]);
 
-    // Handle answer selection for each question
     const handleAnswerSelect = (questionIndex, selectedOption) => {
-        if (isGameOver) return; // Disable interaction when the game is over
-
+        if (isGameOver) return;
         const updatedAnswers = [...userAnswers];
         updatedAnswers[questionIndex] = selectedOption;
         setUserAnswers(updatedAnswers);
 
-        // Check if the selected answer is correct
         const isCorrect = goal.quiz[questionIndex].answer === selectedOption;
 
         setFeedback(prevFeedback => {
@@ -34,12 +34,11 @@ const GoalDetail = () => {
             return updatedFeedback;
         });
 
-        // If the answer is incorrect, decrease a life
         if (!isCorrect) {
             const remainingLives = lives - 1;
             setLives(remainingLives);
             if (remainingLives <= 0) {
-                setIsGameOver(true); // End the session if lives reach 0
+                setIsGameOver(true);
             }
         }
     };
@@ -48,23 +47,32 @@ const GoalDetail = () => {
         return <div>Loading...</div>;
     }
 
+    const nextGoalId = goal.id === 17 ? 1 : goal.id + 1;
+
+    // Handle the transition animation
+    const handleNextGoal = () => {
+        setIsFading(true); // Start fade-out animation
+        setTimeout(() => {
+            navigate(`/goal/${nextGoalId}`); // Wait for fade-out to finish before navigating
+            setIsFading(false); // Reset fading state when transitioning to the new goal
+        }, 500); // Match the CSS transition duration
+    };
+
     return (
-        <div className="goal-detail-page">
+        <div className={`goal-detail-page ${isFading ? 'fade-out' : 'fade-in'}`}>
             <h1>{goal.title}</h1>
             <img src={goal.image} alt={goal.title} />
             <p>{goal.long_description}</p>
             <div className="video-container">
-                <iframe 
-                    src={goal.video_link} 
-                    title={goal.title} 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen>
-                </iframe>
+                <iframe
+                    src={goal.video_link}
+                    title={goal.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
             </div>
 
             <h2>Quiz</h2>
-
-            {/* Display remaining lives as hearts */}
             <div className="life-system">
                 {Array.from({ length: lives }).map((_, index) => (
                     <span key={index} className="heart">❤️</span>
@@ -87,21 +95,29 @@ const GoalDetail = () => {
                                     const isCorrect = goal.quiz[index].answer === option;
 
                                     return (
-                                        <li 
-                                            key={optionIndex} 
-                                            className={`option ${isSelected ? (isCorrect ? 'correct' : 'wrong') : ''}`} // Set correct class based on selection
-                                            onClick={() => handleAnswerSelect(index, option)}>
+                                        <li
+                                            key={optionIndex}
+                                            className={`option ${isSelected ? (isCorrect ? 'correct' : 'wrong') : ''}`}
+                                            onClick={() => handleAnswerSelect(index, option)}
+                                        >
                                             {option}
                                         </li>
                                     );
                                 })}
                             </ul>
-                            {/* Display feedback for the current question */}
-                            {feedback[index] && <p className={`feedback ${feedback[index] === 'Correct!' ? 'correct' : 'wrong'}`}>{feedback[index]}</p>}
+                            {feedback[index] && (
+                                <p className={`feedback ${feedback[index] === 'Correct!' ? 'correct' : 'wrong'}`}>
+                                    {feedback[index]}
+                                </p>
+                            )}
                         </li>
                     ))}
                 </ul>
             )}
+
+            <button className='class-switch' onClick={handleNextGoal}>
+                Go To Next Goal
+            </button>
         </div>
     );
 };
