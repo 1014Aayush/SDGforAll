@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './GoalDetails.css';
 
@@ -7,6 +7,7 @@ function GoalDetail() {
   const { id } = useParams(); // Get the goal id from the route parameters
   const [goal, setGoal] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch goal details from the backend
@@ -27,6 +28,9 @@ function GoalDetail() {
   if (!goal) {
     return <p>Loading...</p>;
   }
+
+  // Calculate the next goal ID
+  const nextGoalId = goal.id === 17 ? 1 : goal.id + 1;
 
   return (
     <div className="goal-detail-page">
@@ -61,6 +65,11 @@ function GoalDetail() {
           </li>
         ))}
       </ul>
+
+      {/* Button to navigate to the next goal */}
+      <button className='class-switch' onClick={() => navigate(`/goal/${nextGoalId}`)}>
+        Go To Next Goal
+      </button>
     </div>
   );
 }
