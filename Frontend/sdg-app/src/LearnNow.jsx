@@ -1,36 +1,46 @@
-import React from 'react';
-import Card from './card';
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import axios from 'axios'; // Import Axios
 import './LearnNow.css';
 
-const cardData = [
-  { id: 1, title: "No Poverty", content: "End poverty in all its forms everywhere.", image: "/images/no-poverty.jpg" },
-  { id: 2, title: "Zero Hunger", content: "End hunger, achieve food security and improved nutrition.", image: "/images/zero-hunger.jpg" },
-  { id: 3, title: "Good Health and Well-being", content: "Ensure healthy lives and promote well-being for all.", image: "/images/good-health.jpg" },
-  { id: 4, title: "Quality Education", content: "Ensure inclusive and equitable quality education.", image: "/images/quality-education.jpg" },
-  { id: 5, title: "Gender Equality", content: "Achieve gender equality and empower all women and girls.", image: "/images/gender-equality.jpg" },
-  // Add up to 16 cards
-];
-
 function LearnNow() {
+  const [cardData, setCardData] = useState([]); // State to hold goal data
+  const [error, setError] = useState(null); // State to hold error messages
+
+  useEffect(() => {
+    // Fetch goals data from the backend
+    axios.get('http://localhost:5000/api/goals')
+      .then(response => {
+        setCardData(response.data); // Set state with fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching goals data:', error);
+        setError('Unable to fetch goals data.'); // Store error message
+      });
+  }, []);
+
+  if (error) {
+    return <p>{error}</p>; // Display error message if any
+  }
+
   return (
     <div className="learn-now-page">
       <h1>Game-Based Learning</h1>
       <p>Get ready to dive into an interactive and engaging way to learn the SDGs through games!</p>
-      {/* This section can later be replaced with an actual game-based learning system */}
 
       <div className="card-container">
         {cardData.map(card => (
-          <Card key={card.id} title={card.title} content={card.content} image={card.image} />
+          <Card
+            key={card.id}
+            title={card.title}
+            content={card.description} // Updated to show description
+            image={card.image}
+            goalId={card.id} // Pass the goal ID for routing
+          />
         ))}
       </div>
-      {/*<div className="game-placeholder">
-        <h2>Game Area</h2>
-        <p>This will host your SDG learning games.</p>
-      </div>*/}
     </div>
   );
 }
 
 export default LearnNow;
-
-
