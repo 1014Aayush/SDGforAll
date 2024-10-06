@@ -5,8 +5,10 @@ import './LandingPages.css';
 
 function LandingPage() {
   return (
+  
     <div className="landing-page">
       {/* Section 1: Hero Section */}
+    
       <section className="hero-section">
         <motion.div
           className="hero-content"
@@ -14,8 +16,6 @@ function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1>Welcome to Sustainable Development Goals Learning</h1>
-          <p>Discover the 17 goals for a better world.</p>
           <ScrollLink to="learn-now" smooth={true} duration={800}>
             <button className="learn-now-btn">Learn Now</button>
           </ScrollLink>
@@ -24,6 +24,9 @@ function LandingPage() {
 
       {/* Section 2: About SDGs */}
       <section className="sdgs-section" id="sdgs">
+
+      <div className='Image'>.</div>
+    
         <motion.div
           className="sdgs-content"
           initial={{ opacity: 0, x: -100 }}
@@ -37,6 +40,8 @@ function LandingPage() {
 
       {/* Section 3: Learn Now Button */}
       <section className="learn-now-section" id="learn-now">
+
+
         <motion.div
           className="learn-now-content"
           initial={{ opacity: 0, y: 50 }}

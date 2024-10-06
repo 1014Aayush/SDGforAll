@@ -1,0 +1,12 @@
+/* src/components/Navbar.css */
+
+.navbar {
+    background-image: url(assets/Nav2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
