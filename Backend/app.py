@@ -6,11 +6,12 @@ CORS(app)  # <-- Enable CORS for all routes
 
 goals_data = [
     {
+        
         "id": 1,
         "title": "No Poverty",
         "description": "End poverty in all its forms everywhere.",
         "long_description": "Poverty is a fundamental issue that affects the well-being of people worldwide. Achieving this goal is vital to improving access to resources and services and ensuring social protection for the vulnerable.",
-        "image": "/images/no-poverty.jpg",
+        "image": "assets/BAckground.jpg",
         "video_link": "https://www.youtube.com/embed/7VwK9qRflL0",
         "quiz": [
             {"question": "What is one way we can help reduce poverty?", 

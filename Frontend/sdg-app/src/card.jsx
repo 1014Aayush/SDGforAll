@@ -1,17 +1,21 @@
+// src/components/Card.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
-import './Card.css'; // Add your card styling here
+import { useNavigate } from 'react-router-dom';
+import './Card.css';
 
 function Card({ title, content, image, goalId }) {
-  const navigate = useNavigate(); // Get navigate for navigation
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/goal/${goalId}`); // Navigate to goal detail page
+    navigate(`/goal/${goalId}`);
   };
 
   return (
-    <div className="card" onClick={handleClick}> {/* Add onClick to card */}
-      <img src={image} alt={title} className="card-image" />
+    <div
+      className="card"
+      onClick={handleClick}
+      style={{ backgroundImage: `url(${image})` }} // Apply background image dynamically
+    >
       <div className="card-content">
         <h2>{title}</h2>
         <p>{content}</p>
